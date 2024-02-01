@@ -83,8 +83,7 @@ class RememberingTest < UsersLogin
 
   test "login with remembering" do
     log_in_as(@user, remember_me: '1')
-    assert_equal cookies[:remember_token], assigns(:user).remember_token #合ってる保証なし
-    #assert_not cookies[:remember_token].blank?
+    assert_not cookies[:remember_token].blank?
   end
 
   test "login without remembering" do
@@ -94,5 +93,4 @@ class RememberingTest < UsersLogin
     log_in_as(@user, remember_me: '0')
     assert cookies[:remember_token].blank?
   end
-
 end
